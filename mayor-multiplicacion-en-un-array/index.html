@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Obtener el mayor resultado de multiplicar 2 numeros en un array</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <h1>Obtener el mayor resultado de multiplicar 2 numeros en un array</h1>
+            <p>
+                Este ejercicio se puede dividir en 2 variantes:
+                <ul>
+                    <li>Obtener el mayor resultado de multiplicar 2 numeros en un array que sean adyacentes ej. [1,2,3,4,5] 1*2 = 2, 2*3 = 6 ... 4*5 = 20, por lo tanto la respuesta sera 20</li>
+                    <li>Obtener el mayor resultado de multiplicar 2 numeros en un array sin importar si son o no adyacentes ej. [5,1,2] 5*1 = 5, 5*2 = 10, 1*2 = 2, por lo tanto la respuesta es 10</li>
+                </ul>
+            </p>
+
+        </div>
+
+        <div class="row">
+            <div class="col text-left">
+                <h2>Funcion js</h2>
+                <small>(Inspecciona el navegador para ver la funcion ejecutandose)</small>
+                <pre>
+                        <code>
+                            /**
+                             * cuando es adyacente
+                             */
+                             function productAdjacentResult(inputArray) {
+                                let result = null;
+                                for(let i = 0; i < inputArray.length; i++){
+                                    let aux = inputArray[i]*inputArray[i+1];
+                                    result =  aux > result || result === null?aux:result;
+                                }
+
+                                return result;
+                            }
+                            /**
+                             * cuando no es adyacente
+                             */
+                            function productResult(inputArray) {
+                                let result = null;
+
+                                for(let i = 0; i < inputArray.length; i++){
+                                    for(let j = i + 1 ; j < inputArray.length ; j++){
+                                        let aux = inputArray[i]*inputArray[j];
+                                        result =  aux > result || result === null?aux:result;
+                                    }
+                                }
+
+                                return result;
+                            }
+
+                        </code>
+                    </pre>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<footer>
+    <script>
+        function productAdjacentResult(inputArray) {
+            let result = null;
+            for(let i = 0; i < inputArray.length; i++){
+                let aux = inputArray[i]*inputArray[i+1];
+                result =  aux > result || result === null?aux:result;
+            }
+
+            return result;
+        }
+
+        function productResult(inputArray) {
+            let result = null;
+
+            for(let i = 0; i < inputArray.length; i++){
+                for(let j = i + 1 ; j < inputArray.length ; j++){
+                    let aux = inputArray[i]*inputArray[j];
+                    result =  aux > result || result === null?aux:result;
+                }
+            }
+
+            return result;
+        }
+
+        let arr = [5,4,5,1,1,2];
+        console.log(productAdjacentResult(arr),productResult(arr));
+        debugger;
+    </script>
+</footer>
+</body>
+</html>
