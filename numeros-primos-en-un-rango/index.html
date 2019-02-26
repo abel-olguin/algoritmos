@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Numeros primos en un rango de numeros</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col">
+                <h1>Numeros primos en un rango de numeros</h1>
+                <p>Obtener todos los numeros primos dentro de un rango de numeros ej. 2 al 5, los numeros primos entre 2 y 5 son 2,3 y 5</p>
+
+                <form id="inputs" onsubmit="calcNumbers(event)">
+                    <div class="form-group">
+                        <label for="start">Inicio</label>
+                        <input type="number" class="form-control" id="start" placeholder="Ej. 2" value="2" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="end">Fin</label>
+                        <input type="number" class="form-control" id="end" placeholder="Ej. 20" value="20" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Numeros primos</button>
+                </form>
+
+                <ul id="results" class="list-group mt-3">
+
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <pre>
+                        function calcNumbers(start,end){
+                            let result  = [];
+                            start = start < 2 ? 2 : start;
+                            end   = end < 2 ? 2 : end;
+
+                            for(let i = start; i <= end ; i++){
+                                let count = 0;
+
+                                for(let j = 2 ; j <= i ; j++){
+                                    if(i % 2 === 0){
+                                        count++;
+                                    }
+
+                                    if(count > 2)
+                                        break;
+
+                                }
+
+                                if(count <= 2){
+                                    result.push(i);
+                                }
+                            }
+
+                            return result;
+                        }
+                    </pre>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+<footer>
+    <script>
+        function calcNumbers(e){
+            e.preventDefault();
+
+            let start   = parseInt(document.getElementById('start').value);
+            let end     = parseInt(document.getElementById('end').value);
+            let result  = document.getElementById('results');
+
+            result.innerText = '';
+
+            start = start < 2 ? 2 : start;
+            end   = end < 2 ? 2 : end;
+
+            for(let i = start; i <= end ; i++){
+                let count = 0;
+
+                for(let j = 2 ; j <= i ; j++){
+                    if(i % 2 === 0){
+                        count++;
+                    }
+
+                    if(count > 2)
+                        break;
+
+                }
+
+                if(count <= 2){
+                    let li = document.createElement('li');
+                    let t = document.createTextNode(`${i} es un numero primo`);
+                    li.appendChild(t);
+                    li.className = 'list-group-item';
+                    result.appendChild(li)
+                }
+            }
+
+        }
+
+
+    </script>
+</footer>
+</body>
+</html>
