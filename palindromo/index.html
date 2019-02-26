@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Verificar si una cadena es un palindromo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <h1>Verificar si una cadena es un palindromo</h1>
+            <p>Dada una cadena de texto verificar que es o no es un palindromo.</p>
+
+            <h2>Funcion js</h2>
+            <form id="inputs" onsubmit="checkPalindrome(event)">
+                <div class="form-group">
+                    <label for="str">Texto</label>
+                    <input type="text" class="form-control" id="str" placeholder="Ej. abc" required>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Verificar</button>
+            </form>
+
+            <div id="result" class="list-group mt-3">
+
+            </div>
+        </div>
+
+        <div class="col text-left">
+            <h2>Funcion js</h2>
+            <pre>
+                <code>
+                     function checkPalindrome(str){
+                        for(let i = 0 ; i < str.length/2 ; i++){
+                            if(str[i] !== str[str.length -1 -i]){
+                                return false;
+                            }
+                        }
+
+                        return true;
+                    }
+                </code>
+            </pre>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <script>
+        function checkPalindrome(e){
+            e.preventDefault();
+            let str = document.getElementById('str').value;
+
+            for(let i = 0 ; i < str.length/2 ; i++){
+                if(str[i] !== str[str.length -1 -i]){
+                    document.getElementById('result').innerText = `${str} no es un palindromo`;
+                    return;
+                }
+            }
+
+            document.getElementById('result').innerText = `${str} es un palindromo`;
+        }
+
+    </script>
+</footer>
+</body>
+</html>
