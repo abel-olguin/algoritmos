@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cambiar variables sin usar auxiliar </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <h1>Cambiar variables sin usar auxiliar</h1>
+            <p>
+                Teniendo 2 variables X y Y cambiarlas de posicion, que X tenga el valor de Y sin usar una tercera variable.
+                Este ejercicio tiene 2 posibles soluciones, una usando sumas y restas y otra usando XOR sin embargo XOR no esta disponible en todos los lenguajes por lo que lo dejo solo de manera teorica
+            </p>
+
+        </div>
+
+        <div class="row">
+            <div class="col text-left">
+                <h2>Funcion js</h2>
+                <small>(Inspecciona el navegador para ver la funcion ejecutandose)</small>
+                <pre>
+                        <code>
+                            let X  = 10;
+                            let Y  = 15;
+
+                            X = X + Y;//25
+                            Y = X - Y;//10
+                            X = X - Y;//15
+
+                            //XOR
+
+                            X ^= Y;
+                            Y ^= X;//10
+                            X ^= Y;//15
+
+                        </code>
+                    </pre>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<footer>
+    <script>
+        let X  = 10;
+        let Y  = 15;
+        console.log('Recien declaradas:', X,Y);
+
+        X = X + Y;//25
+        Y = X - Y;//10
+        X = X - Y;//15
+
+        console.log('Despues del cambio:',X,Y);
+        debugger;
+    </script>
+</footer>
+</body>
+</html>
