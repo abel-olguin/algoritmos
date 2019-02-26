@@ -33,33 +33,36 @@
             </div>
 
             <div class="row">
-                <div class="col">
+                <div class="col text-left">
+                    <h2>Funcion js</h2>
                     <pre>
-                        function calcNumbers(start,end){
-                            let result  = [];
-                            start = start < 2 ? 2 : start;
-                            end   = end < 2 ? 2 : end;
+                        <code>
+                             function calcNumbers(start,end){
+                                let result  = [];
+                                start = start < 2 ? 2 : start;
+                                end   = end < 2 ? 2 : end;
 
-                            for(let i = start; i <= end ; i++){
-                                let count = 0;
+                                for(let i = start; i <= end ; i++){
+                                    let count = 0;
 
-                                for(let j = 2 ; j <= i ; j++){
-                                    if(i % 2 === 0){
-                                        count++;
+                                    for(let j = 2 ; j <= i ; j++){
+                                        if(i % 2 === 0){
+                                            count++;
+                                        }
+
+                                        if(count > 2)
+                                            break;
+
                                     }
 
-                                    if(count > 2)
-                                        break;
-
+                                    if(count <= 2){
+                                        result.push(i);
+                                    }
                                 }
 
-                                if(count <= 2){
-                                    result.push(i);
-                                }
+                                return result;
                             }
-
-                            return result;
-                        }
+                        </code>
                     </pre>
                 </div>
             </div>
