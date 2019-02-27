@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de piedra papel o tijera</title>
+    <meta name="author" content="Abel Olguin chavez">
+    <meta name="description" content="Algoritmos para hacer el juego de piedra papel o tijeras, posibles soluciones - Abel olguin">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <h1>Juego de piedra papel o tijera</h1>
+            <p>Hacer el juego de piedra papel o tijera</p>
+            <div class="row">
+                <div class="col-4">
+                    <button id="stone" class="btn btn-info" onclick="playWith('piedra')" >Piedra</button>
+                </div>
+                <div class="col-4">
+                    <button id="paper" class="btn btn-info" onclick="playWith('papel')" >Papel</button>
+                </div>
+                <div class="col-4">
+                    <button id="scissors" class="btn btn-info" onclick="playWith('tijeras')" >Tijeras</button>
+                </div>
+            </div>
+
+            <ul id="results" class="list-group mt-3">
+
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="col text-left">
+                <h2>Funcion js</h2>
+                <pre>
+                    <code>
+                         function papperScissorsStone(player1,player2){
+                            let rules = {paper:['stone'],scissors:['paper'],stone:['scissors']};
+
+                            if(player1 === player2){
+                                return 'draw';
+                            }
+
+                            if(rules[player1].indexOf(player2) < 0){
+                                return 'Player 2 wins';
+                            }
+
+                            return 'Player 1 wins';
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<footer>
+    <script>
+        const possibilities = ['papel','tijeras','piedra'];
+
+        function papperScissorsStone(player1,player2){
+            let rules = {papel:['piedra'],tijeras:['papel'],piedra:['tijeras']};
+
+            if(player1 === player2){
+                return 'empate';
+            }
+
+            if(rules[player1].indexOf(player2) < 0){
+                return 'La computadora gano';
+            }
+
+            return 'Ganaste';
+        }
+
+
+        function playWith(answer){
+            let rnd = Math.floor((Math.random() * 3)+1)-1;
+
+            if(possibilities.indexOf(answer) < 0){
+                answer = possibilities[rnd];
+                rnd = Math.floor((Math.random() * 3)+1)-1;
+            }
+
+            let computer = possibilities[rnd];
+
+            document.getElementById('results').innerText = `Tu elegiste: ${answer}, la computadora eligio: ${computer}, resultado: ${papperScissorsStone(answer,computer)}`;
+        }
+
+        debugger;
+
+    </script>
+</footer>
+</body>
+</html>
