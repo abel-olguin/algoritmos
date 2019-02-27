@@ -13,7 +13,7 @@
 <div class="container">
 
     <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-sm-12">
             <h1>Obtener el mayor resultado de multiplicar 2 numeros en un array</h1>
             <p>
                 Este ejercicio se puede dividir en 2 variantes:
@@ -25,43 +25,41 @@
 
         </div>
 
-        <div class="row">
-            <div class="col text-left">
-                <h2>Funcion js</h2>
-                <small>(Inspecciona el navegador para ver la funcion ejecutandose)</small>
-                <pre>
-                        <code>
-                            /**
-                             * cuando es adyacente
-                             */
-                             function productAdjacentResult(inputArray) {
-                                let result = null;
-                                for(let i = 0; i < inputArray.length; i++){
-                                    let aux = inputArray[i]*inputArray[i+1];
-                                    result =  aux > result || result === null?aux:result;
-                                }
+        <div class="col-md-6 col-sm-12 text-left">
+            <h2>Funcion js</h2>
+            <small>(Inspecciona el navegador para ver la funcion ejecutandose)</small>
+            <pre>
+                <code>
+                    /**
+                     * cuando es adyacente
+                     */
+                     function productAdjacentResult(inputArray) {
+                        let result = null;
+                        for(let i = 0; i < inputArray.length; i++){
+                            let aux = inputArray[i]*inputArray[i+1];
+                            result =  aux > result || result === null?aux:result;
+                        }
 
-                                return result;
+                        return result;
+                    }
+                    /**
+                     * cuando no es adyacente
+                     */
+                    function productResult(inputArray) {
+                        let result = null;
+
+                        for(let i = 0; i < inputArray.length; i++){
+                            for(let j = i + 1 ; j < inputArray.length ; j++){
+                                let aux = inputArray[i]*inputArray[j];
+                                result =  aux > result || result === null?aux:result;
                             }
-                            /**
-                             * cuando no es adyacente
-                             */
-                            function productResult(inputArray) {
-                                let result = null;
+                        }
 
-                                for(let i = 0; i < inputArray.length; i++){
-                                    for(let j = i + 1 ; j < inputArray.length ; j++){
-                                        let aux = inputArray[i]*inputArray[j];
-                                        result =  aux > result || result === null?aux:result;
-                                    }
-                                }
+                        return result;
+                    }
 
-                                return result;
-                            }
-
-                        </code>
-                    </pre>
-            </div>
+                </code>
+            </pre>
         </div>
 
 

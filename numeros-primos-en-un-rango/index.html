@@ -13,7 +13,7 @@
     <div class="container">
 
         <div class="row">
-            <div class="col">
+            <div class="col-md-6 col-sm-12">
                 <h1>Numeros primos dentro de un rango de numeros</h1>
                 <p>Obtener todos los numeros primos dentro de un rango de numeros ej. 2 al 5, los numeros primos entre 2 y 5 son 2,3 y 5</p>
 
@@ -36,42 +36,38 @@
                 </ul>
             </div>
 
-            <div class="row">
-                <div class="col text-left">
-                    <h2>Funcion js</h2>
-                    <pre>
-                        <code>
-                             function calcNumbers(start,end){
-                                let result  = [];
-                                start = start < 2 ? 2 : start;
-                                end   = end < 2 ? 2 : end;
+            <div class="col-md-6 col-sm-12 text-left">
+                <h2>Funcion js</h2>
+                <pre>
+                    <code>
+                         function calcNumbers(start,end){
+                            let result  = [];
+                            start = start < 2 ? 2 : start;
+                            end   = end < 2 ? 2 : end;
 
-                                for(let i = start; i <= end ; i++){
-                                    let count = 0;
+                            for(let i = start; i <= end ; i++){
+                                let count = 0;
 
-                                    for(let j = 2 ; j <= i ; j++){
-                                        if(i % 2 === 0){
-                                            count++;
-                                        }
-
-                                        if(count > 2)
-                                            break;
-
+                                for(let j = 2 ; j <= i ; j++){
+                                    if(i % 2 === 0){
+                                        count++;
                                     }
 
-                                    if(count <= 2){
-                                        result.push(i);
-                                    }
+                                    if(count > 2)
+                                        break;
+
                                 }
 
-                                return result;
+                                if(count <= 2){
+                                    result.push(i);
+                                }
                             }
-                        </code>
-                    </pre>
-                </div>
+
+                            return result;
+                        }
+                    </code>
+                </pre>
             </div>
-
-
         </div>
     </div>
 

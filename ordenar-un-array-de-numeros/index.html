@@ -13,34 +13,32 @@
 <div class="container">
 
     <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-sm-12">
             <h1>Ordenar un array de numeros de menor a mayor</h1>
             <p>Dado un array de numeros en desorden ordenarlos de menor a mayor ej. [5,4,3,2,1] = [1,2,3,4,5]</p>
 
         </div>
 
-        <div class="row">
-            <div class="col text-left">
-                <h2>Funcion js</h2>
-                <small>(Inspecciona el navegador para ver la funcion ejecutandose)</small>
-                <pre>
-                        <code>
-                             function order(arr){
-                                for(let i = 0 ; i < arr.length ; i++){
-                                    if(arr[i] > arr[i+1]){
-                                        let aux     = arr[i];
-                                        arr[i]      = arr[i+1];
-                                        arr[i+1]    = aux;
+        <div class="col-md-6 col-sm-12 text-left">
+            <h2>Funcion js</h2>
+            <small>(Inspecciona el navegador para ver la funcion ejecutandose)</small>
+            <pre>
+                <code>
+                     function order(arr){
+                        for(let i = 0 ; i < arr.length ; i++){
+                            if(arr[i] > arr[i+1]){
+                                let aux     = arr[i];
+                                arr[i]      = arr[i+1];
+                                arr[i+1]    = aux;
 
-                                        i = -1;
-                                    }
-                                }
-
-                                return arr;
+                                i = -1;
                             }
-                        </code>
-                    </pre>
-            </div>
+                        }
+
+                        return arr;
+                    }
+                </code>
+            </pre>
         </div>
 
 

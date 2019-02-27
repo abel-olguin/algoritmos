@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verificar si una cadena es un palindromo</title>
+    <title>Ordenar una cadena alfabeticamente</title>
     <meta name="author" content="Abel Olguin chavez">
-    <meta name="description" content="Verificar si un string es un palindromo, posibles soluciones - Abel olguin">
+    <meta name="description" content="Dada una cadena de texto ordenarla de manera alfabetica, posibles soluciones - Abel olguin">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
@@ -14,18 +14,18 @@
 
     <div class="row">
         <div class="col-md-6 col-sm-12">
-            <h1>Verificar si una cadena es un palindromo</h1>
-            <p>Dada una cadena de texto verificar que es o no es un palindromo.</p>
+            <h1>Ordenar una cadena alfabeticamente</h1>
+            <p>Dada una cadena de texto ordenarla de manera alfabetica en forma ascendente, lo importante a recordar es la funcion substr(donde_empieza,cantidad_de_caracteres)</p>
 
             <h2>Funcion js</h2>
-            <form id="inputs" onsubmit="checkPalindrome(event)">
+            <form id="inputs" onsubmit="orderString(event)">
                 <div class="form-group">
                     <label for="str">Texto</label>
                     <input type="text" class="form-control" id="str" placeholder="Ej. abc" required>
                 </div>
 
 
-                <button type="submit" class="btn btn-primary">Verificar</button>
+                <button type="submit" class="btn btn-primary">Ordenar</button>
             </form>
 
             <div id="result" class="list-group mt-3">
@@ -37,14 +37,17 @@
             <h2>Funcion js</h2>
             <pre>
                 <code>
-                     function checkPalindrome(str){
-                        for(let i = 0 ; i < str.length/2 ; i++){
-                            if(str[i] !== str[str.length -1 -i]){
-                                return false;
+                     function orderString(str){
+                        e.preventDefault();
+
+                        for(let i = 0 ; i < str.length ; i++){
+                            if(str[i] > str[i+1]){
+                                str = str.substr(0,i) + str[i+1] + str[i] + str.substr(i+2,str.length-i-2);
+
+                               i = -1;
                             }
                         }
-
-                        return true;
+                        return str;
                     }
                 </code>
             </pre>
@@ -55,20 +58,21 @@
 
 <footer>
     <script>
-        function checkPalindrome(e){
+        function orderString(e){
             e.preventDefault();
             let str = document.getElementById('str').value;
 
-            for(let i = 0 ; i < str.length/2 ; i++){
-                if(str[i] !== str[str.length -1 -i]){
-                    document.getElementById('result').innerText = `${str} no es un palindromo`;
-                    return;
+            for(let i = 0 ; i < str.length ; i++){
+                if(str[i] > str[i+1]){
+                   str = str.substr(0,i) + str[i+1] + str[i] + str.substr(i+2,str.length-i-2);
+
+                   i = -1;
                 }
             }
 
-            document.getElementById('result').innerText = `${str} es un palindromo`;
+            document.getElementById('result').innerText = `${document.getElementById('str').value} ordenada es igual a: ${str}`;
         }
-
+    debugger;
     </script>
 </footer>
 </body>
