@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secuencia fibonacci</title>
+    <meta name="author" content="Abel Olguin chavez">
+    <meta name="description" content="Hacer una funcion cuyo resultado sea la secuencia fibonacci (0,1,1,2,3,5,8,13...)">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <h1>Secuencia fibonacci</h1>
+            <p>Hacer una funcion cuyo resultado sea la secuencia fibonacci (0,1,1,2,3,5,8,13...)</p>
+
+        </div>
+
+        <div class="col-md-6 col-sm-12 text-left">
+            <h2>Funcion js</h2>
+            <small>(Inspecciona el navegador para ver la funcion ejecutandose)</small>
+            <pre>
+                <code>
+                     function fibonacci(iterations){
+                        let aux     = 1;
+                        let result  = [0];
+
+                        for(let i = 0 ; i < iterations-1 ; i++){
+                            aux = (result[i-1] || 0) + aux;
+                            result.push(aux)
+                        }
+
+                        return result;
+                    }
+
+                </code>
+            </pre>
+        </div>
+
+
+    </div>
+</div>
+
+<footer>
+    <script>
+        function fibonacci(iterations){
+            let aux     = 1;
+            let result  = [0];
+
+            for(let i = 0 ; i < iterations-1 ; i++){
+                aux = (result[i-1] || 0) + aux;
+                result.push(aux)
+            }
+
+            return result;
+        }
+
+        console.log(fibonacci(10));
+    </script>
+</footer>
+</body>
+</html>
